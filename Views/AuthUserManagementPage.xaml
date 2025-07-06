@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="appControlAccess1.Views.AuthUserManagementPage"
+             BackgroundColor="#fef0f5"
+             Title="Gestión de Guardias">
+    <!-- Ensure all bindings and event handlers are properly defined -->
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Label Text="Guardias Registrados"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   TextColor="#ef0381"
+                   HorizontalOptions="Center" />
+
+            <Button Text="Agregar Guardia"
+                    Clicked="OnAgregarGuardiaClicked"
+                    BackgroundColor="#ef0381"
+                    TextColor="White"
+                    CornerRadius="10"
+                    FontAttributes="Bold"
+                    Padding="10" />
+
+            <CollectionView x:Name="UsuariosCollection"
+                            ItemsSource="{Binding Usuarios}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Stroke="#ef0381"
+                                StrokeThickness="1"
+                                StrokeShape="RoundRectangle 15">
+                            <VerticalStackLayout Padding="15" Spacing="5">
+                                <Label Text="{Binding name}"
+                                       FontAttributes="Bold"
+                                       FontSize="18"
+                                       TextColor="#333" />
+
+                                <Label Text="{Binding email, StringFormat='Correo: {0}'}"
+                                       FontSize="14"
+                                       TextColor="#555" />
+
+                                <Label Text="{Binding rol, StringFormat='Rol: {0}'}"
+                                       FontSize="14"
+                                       TextColor="#555" />
+
+                                <HorizontalStackLayout Spacing="10">
+                                    <Button Text="Editar"
+                                            BackgroundColor="#ffc0cb"
+                                            TextColor="Black"
+                                            Clicked="OnEditarGuardiaClicked" />
+
+                                    <Button Text="Eliminar"
+                                            BackgroundColor="DarkRed"
+                                            TextColor="White"
+                                            Clicked="OnEliminarGuardiaClicked" />
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Modal -->
+            <Grid x:Name="ModalLayout"
+                  BackgroundColor="#ffffffee"
+                  Padding="20"
+                  IsVisible="False"
+                  RowSpacing="10"
+                  VerticalOptions="Center">
+
+                <Border Stroke="#ef0381" StrokeThickness="2" StrokeShape="RoundRectangle 20" Background="#fff">
+                    <VerticalStackLayout Padding="20" Spacing="10">
+                        <Label Text="Formulario de Guardia"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               TextColor="#ef0381"
+                               HorizontalOptions="Center" />
+
+                        <Entry x:Name="NombreEntry"
+                               Placeholder="Nombre"
+                               BackgroundColor="#f4f4f4"
+                               TextColor="Black" />
+
+                        <Entry x:Name="CorreoEntry"
+                               Placeholder="Correo"
+                               BackgroundColor="#f4f4f4"
+                               TextColor="Black" />
+
+                        <Entry x:Name="PasswordEntry"
+                               Placeholder="Contraseña"
+                               IsPassword="True"
+                               BackgroundColor="#f4f4f4"
+                               TextColor="Black" />
+
+                        <Picker x:Name="RolPicker"
+                                Title="Selecciona un Rol"
+                                BackgroundColor="#f4f4f4"
+                                TextColor="Black">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>guardia</x:String>
+                                    <x:String>admin</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+
+                        <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                            <Button Text="Guardar"
+                                    Clicked="OnGuardarGuardiaClicked"
+                                    BackgroundColor="#ef0381"
+                                    TextColor="White"
+                                    CornerRadius="10" />
+
+                            <Button Text="Cancelar"
+                                    Clicked="OnCancelarModalClicked"
+                                    BackgroundColor="Gray"
+                                    TextColor="White"
+                                    CornerRadius="10" />
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Border>
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

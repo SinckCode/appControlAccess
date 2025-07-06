@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="appControlAccess1.Views.DashboardPage"
+             Title="Dashboard"
+             BackgroundColor="#1e1e1e">
+
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="25">
+
+            <!-- Estado del Estacionamiento -->
+            <Label Text="Estado del Estacionamiento"
+                   FontSize="Large"
+                   FontAttributes="Bold"
+                   TextColor="#ff2f92"
+                   HorizontalOptions="Center" />
+
+            <CollectionView x:Name="ParkingStatusView"
+                            ItemsLayout="HorizontalList"
+                            HeightRequest="180">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="#ff9ecb"
+                               CornerRadius="20"
+                               Padding="15"
+                               Margin="5"
+                               WidthRequest="160"
+                               BackgroundColor="#ffe4ec"
+                               HasShadow="True">
+                            <StackLayout Spacing="8" HorizontalOptions="Center">
+                                <Label Text="Espacio #"
+                                       FontAttributes="Bold"
+                                       FontSize="Medium"
+                                       TextColor="#b30059"
+                                       HorizontalOptions="Center"/>
+
+                                <Label Text="{Binding Id}"
+                                       FontSize="30"
+                                       FontAttributes="Bold"
+                                       TextColor="#333"
+                                       HorizontalOptions="Center"/>
+
+                                <Frame BackgroundColor="{Binding EstadoColor}"
+                                       CornerRadius="10"
+                                       Padding="6"
+                                       HasShadow="False"
+                                       HorizontalOptions="Center">
+                                    <Label Text="{Binding EstadoTexto}"
+                                           TextColor="White"
+                                           FontAttributes="Bold"
+                                           FontSize="Medium"
+                                           HorizontalTextAlignment="Center"
+                                           HorizontalOptions="Center"/>
+                                </Frame>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Botón de la Pluma -->
+
+            <Button Text="Controlar Pluma"
+        Clicked="OnControlarPlumaClicked"
+        BackgroundColor="#ef0381"
+        TextColor="White"
+        CornerRadius="10"
+        FontAttributes="Bold"
+        Padding="12" />
+
+            <Button Text="Gestionar Usuarios"
+        Clicked="OnGestionarUsuariosClicked"
+        BackgroundColor="#ef0381"
+        TextColor="White"
+        FontAttributes="Bold"
+        CornerRadius="10"
+        Padding="10"
+        Margin="0,10,0,0" />
+            <Button Text="Gestionar Guardias"
+        Clicked="OnGestionarGuardiasClicked"
+        BackgroundColor="#ef0381"
+        TextColor="White"
+        FontAttributes="Bold"
+        CornerRadius="10"
+        Padding="10"
+        Margin="0,10,0,0" />
+
+            <!-- Botón de Cerrar Sesión -->
+            <Button Text="Cerrar Sesión"
+        Clicked="OnLogoutClicked"
+        BackgroundColor="#8b0033"
+        TextColor="White"
+        CornerRadius="15"
+        FontAttributes="Bold"
+        HeightRequest="50" />
+
+            <!-- Historial de Accesos -->
+            <Label Text="Historial de Accesos"
+                   FontSize="Large"
+                   FontAttributes="Bold"
+                   TextColor="#ff2f92"
+                   HorizontalOptions="Center"/>
+
+            <CollectionView x:Name="LogsListView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="#ff9ecb"
+                   CornerRadius="15"
+                   Padding="15"
+                   Margin="5"
+                   BackgroundColor="#ffe4ec"
+                   HasShadow="True">
+                            <StackLayout>
+                                <Label Text="{Binding rfid_uid}"
+                           FontAttributes="Bold"
+                           FontSize="Medium"
+                           TextColor="#000000" />
+                                <!-- Negro -->
+                                <Label Text="{Binding result}"
+                           FontSize="14"
+                           TextColor="#333333" />
+                                <!-- Gris oscuro -->
+                                <Label Text="{Binding notes}"
+                           FontSize="Small"
+                           TextColor="#555555" />
+                                <!-- Gris intermedio -->
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+
+
+
+
+
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

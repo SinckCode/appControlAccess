@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:appControlAccess1.ViewModels"
+             x:Class="appControlAccess1.Views.LoginPage"
+             BackgroundColor="White"
+             Title="Inicio de Sesión">
+
+    <ContentPage.BindingContext>
+        <vm:LoginViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="20" VerticalOptions="CenterAndExpand">
+
+            <Label Text="Bienvenido"
+                   FontSize="32"
+                   HorizontalOptions="Center"
+                   TextColor="#333" />
+
+            <Label Text="Por favor, inicia sesión para continuar"
+                   FontSize="16"
+                   HorizontalOptions="Center"
+                   TextColor="#666" />
+
+            <Entry Placeholder="Correo electrónico"
+                   PlaceholderColor="Gray"
+                   Keyboard="Email"
+                   ReturnType="Next"
+                   FontSize="16"
+                   TextColor="Black"
+                   Text="{Binding Email}" />
+
+            <Entry Placeholder="Contraseña"
+                   PlaceholderColor="Gray"
+                   IsPassword="True"
+                   FontSize="16"
+                   TextColor="Black"
+                   Text="{Binding Password}" />
+
+            <Button Text="Iniciar Sesión"
+                    FontAttributes="Bold"
+                    BackgroundColor="#2B90D9"
+                    TextColor="White"
+                    CornerRadius="10"
+                    Command="{Binding LoginCommand}" />
+
+            <!-- Indicador de carga -->
+            <ActivityIndicator IsRunning="{Binding IsLoading}"
+                               IsVisible="{Binding IsLoading}"
+                               Color="#2B90D9"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

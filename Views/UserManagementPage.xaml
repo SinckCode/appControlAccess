@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="appControlAccess1.Views.UserManagementPage"
+             BackgroundColor="#fef0f5"
+             Title="Gestión de Usuarios">
+
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="15">
+
+            <Label Text="Usuarios Registrados"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   TextColor="#ef0381"
+                   HorizontalOptions="Center" />
+
+            <Button Text="Agregar Usuario"
+                    Clicked="OnAgregarUsuarioClicked"
+                    BackgroundColor="#ef0381"
+                    TextColor="White"
+                    CornerRadius="10"
+                    FontAttributes="Bold"
+                    Padding="10" />
+
+            <CollectionView x:Name="UsuariosCollection">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="#ef0381"
+                               CornerRadius="15"
+                               Padding="15"
+                               Margin="5"
+                               BackgroundColor="White">
+                            <StackLayout>
+                                <Label Text="{Binding name}"
+                                       FontAttributes="Bold"
+                                       FontSize="18"
+                                       TextColor="#333" />
+
+                                <Label Text="{Binding rfid_uid, StringFormat='UID: {0}'}"
+                                       FontSize="14"
+                                       TextColor="#555" />
+
+                                <Label Text="{Binding role, StringFormat='Rol: {0}'}"
+                                       FontSize="14"
+                                       TextColor="#555" />
+
+                                <StackLayout Orientation="Horizontal" Spacing="10">
+                                    <Button Text="Editar"
+                                            BackgroundColor="#ffc0cb"
+                                            TextColor="Black"
+                                            Clicked="OnEditarUsuarioClicked" />
+
+                                    <Button Text="Eliminar"
+                                            BackgroundColor="DarkRed"
+                                            TextColor="White"
+                                            Clicked="OnEliminarUsuarioClicked" />
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Modal para agregar/editar usuarios -->
+            <Grid x:Name="ModalLayout"
+                  BackgroundColor="#ffffffee"
+                  Padding="20"
+                  IsVisible="False"
+                  RowSpacing="10"
+                  VerticalOptions="Center">
+
+                <Frame CornerRadius="20"
+                       BorderColor="#ef0381"
+                       BackgroundColor="White"
+                       Padding="20">
+                    <StackLayout Spacing="10">
+                        <Label Text="Formulario de Usuario"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               TextColor="#ef0381"
+                               HorizontalOptions="Center" />
+
+                        <Entry x:Name="NombreEntry"
+                               Placeholder="Nombre"
+                               BackgroundColor="#f4f4f4"
+                               TextColor="Black" />
+
+                        <Entry x:Name="UidEntry"
+                               Placeholder="UID"
+                               BackgroundColor="#f4f4f4"
+                               TextColor="Black" />
+
+                        <Picker x:Name="RolPicker"
+                                Title="Selecciona un Rol"
+                                BackgroundColor="#f4f4f4"
+                                TextColor="Black">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>empleado</x:String>
+                                    <x:String>invitado</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+
+                        <StackLayout Orientation="Horizontal" Spacing="10" HorizontalOptions="Center">
+                            <Button Text="Guardar"
+                                    Clicked="OnGuardarUsuarioClicked"
+                                    BackgroundColor="#ef0381"
+                                    TextColor="White"
+                                    CornerRadius="10" />
+
+                            <Button Text="Cancelar"
+                                    Clicked="OnCancelarModalClicked"
+                                    BackgroundColor="Gray"
+                                    TextColor="White"
+                                    CornerRadius="10" />
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+            </Grid>
+
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>

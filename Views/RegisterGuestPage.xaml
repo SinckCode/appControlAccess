@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:appControlAccess1.Views"
+             x:Class="appControlAccess1.Views.RegisterGuestPage"
+             BackgroundColor="#1c1c1c"
+             Title="Registrar Invitado">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Label Text="Registro de Invitado"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   TextColor="#ef0381"
+                   HorizontalOptions="Center" />
+
+            <Entry x:Name="NombreEntry"
+                   Placeholder="Nombre del invitado"
+                   PlaceholderColor="Gray"
+                   BackgroundColor="White"
+                   TextColor="Black"
+                   Margin="0,5" />
+
+            <Entry x:Name="EmpresaEntry"
+                   Placeholder="Empresa"
+                   PlaceholderColor="Gray"
+                   BackgroundColor="White"
+                   TextColor="Black"
+                   Margin="0,5" />
+
+            <Entry x:Name="MotivoEntry"
+                   Placeholder="Motivo de la visita"
+                   PlaceholderColor="Gray"
+                   BackgroundColor="White"
+                   TextColor="Black"
+                   Margin="0,5" />
+
+            <Entry x:Name="UidEntry"
+                   Placeholder="UID de la tarjeta RFID"
+                   PlaceholderColor="Gray"
+                   BackgroundColor="White"
+                   TextColor="Black"
+                   Margin="0,5" />
+
+            <Button Text="Registrar"
+                    Clicked="OnRegistrarClicked"
+                    BackgroundColor="#ef0381"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    CornerRadius="10"
+                    Padding="10" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

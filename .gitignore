@@ -1,0 +1,77 @@
+# Archivos de configuración de usuario
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Archivos de compilación
+bin/
+obj/
+
+# Archivos de depuración
+*.pdb
+*.mdb
+
+# Archivos generados por Visual Studio / Rider
+.vs/
+.idea/
+*.userprefs
+
+# Paquetes NuGet
+*.nupkg
+# Directorios de paquetes (usualmente no se suben)
+packages/
+# Archivos de lock NuGet
+project.lock.json
+project.fragment.lock.json
+
+# Archivos de configuración de build
+project.json
+project.json.user
+
+# Logs
+*.log
+
+# Archivos temporales
+*.tmp
+*.temp
+~$*
+
+# Salidas de Android
+*.apk
+*.ap_
+*.dex
+*.apk.idsig
+
+# Salidas de iOS y MacCatalyst
+*.ipa
+
+# Archivos de backup de Visual Studio
+_Backup/
+
+# Archivos de Xamarin / MAUI
+*.aab
+*.keystore
+*.zip
+
+# Archivos de caché y autogenerados
+*.cache
+*.db
+*.db-shm
+*.db-wal
+
+# Directorios específicos de plataformas
+Platforms/Android/Resources/values/
+Platforms/iOS/Resources/
+Platforms/MacCatalyst/
+Platforms/Tizen/
+Platforms/Windows/
+
+# Configuración del lanzador
+Properties/launchSettings.json
+
+# Archivos de configuración local de dotnet
+*.dotCover
+
+# Otros
+listado.txt

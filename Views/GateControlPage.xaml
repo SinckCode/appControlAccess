@@ -1,0 +1,82 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="appControlAccess1.Views.GateControlPage"
+             Title="Control de Plumas"
+             BackgroundColor="#ffe4ec">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="40">
+
+            <!-- PLUMA 1 -->
+            <Frame BackgroundColor="#f06292" CornerRadius="15" Padding="20">
+                <VerticalStackLayout Spacing="15">
+                    <Label Text="Pluma 1"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           TextColor="White"
+                           HorizontalOptions="Center" />
+
+                    <Label x:Name="StatusLabel1"
+                           Text="Estado: Desconocido"
+                           FontSize="16"
+                           TextColor="White"
+                           HorizontalOptions="Center" />
+
+                    <Button Text="🔓 Abrir"
+                            Clicked="OnOpen1Clicked"
+                            BackgroundColor="#d72638"
+                            TextColor="White"
+                            CornerRadius="12" />
+
+                    <Button Text="🔒 Cerrar"
+                            Clicked="OnClose1Clicked"
+                            BackgroundColor="#880e4f"
+                            TextColor="White"
+                            CornerRadius="12" />
+
+                    <Button Text="🔁 Actualizar Estado"
+                            Clicked="OnCheckStatus1Clicked"
+                            BackgroundColor="#ff6f61"
+                            TextColor="White"
+                            CornerRadius="12" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- PLUMA 2 -->
+            <Frame BackgroundColor="#ba68c8" CornerRadius="15" Padding="20">
+                <VerticalStackLayout Spacing="15">
+                    <Label Text="Pluma 2"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           TextColor="White"
+                           HorizontalOptions="Center" />
+
+                    <Label x:Name="StatusLabel2"
+                           Text="Estado: Desconocido"
+                           FontSize="16"
+                           TextColor="White"
+                           HorizontalOptions="Center" />
+
+                    <Button Text="🔓 Abrir"
+                            Clicked="OnOpen2Clicked"
+                            BackgroundColor="#6a1b9a"
+                            TextColor="White"
+                            CornerRadius="12" />
+
+                    <Button Text="🔒 Cerrar"
+                            Clicked="OnClose2Clicked"
+                            BackgroundColor="#4a148c"
+                            TextColor="White"
+                            CornerRadius="12" />
+
+                    <Button Text="🔁 Actualizar Estado"
+                            Clicked="OnCheckStatus2Clicked"
+                            BackgroundColor="#ab47bc"
+                            TextColor="White"
+                            CornerRadius="12" />
+                </VerticalStackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
